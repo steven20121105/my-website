@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penguin-Chip | Semiconductor Design Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F2B4A', // Deep blue - trust, technology
+                        secondary: '#0F2B4A', // Dark blue - updated from green
+                        accent: '#E63946', // Coral - energy, excitement
+                        dark: '#1D3557',
+                        light: '#F3F4F6', // Light gray
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            .gradient-mask-b {
+                mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="font-inter bg-light text-primary antialiased">
+    <!-- Navigation -->
+    <header id="navbar" class="fixed top-0 w-full z-50 bg-white py-4 shadow-md" style="background-color: white !important;">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold flex items-center">
+                 <img src="logo.png" alt="Penguin-Chip Logo" class="h-[2.2rem] w-auto -ml-12">
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">About</a>
+                <a href="#services" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">Services</a>
+                <a href="#technologies" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">Technologies</a>
+                <a href="#projects" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">Projects</a>
+                <a href="#careers" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">Careers</a>
+                <a href="#contact" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">Contact</a>
+            </nav>
+            <button id="menu-toggle" class="md:hidden text-xl text-primary">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-primary bg-opacity-95 z-40 transform translate-x-full transition-transform duration-300 md:hidden">
+        <div class="flex justify-end p-6">
+            <button id="close-menu" class="text-2xl text-light">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#about" class="text-xl uppercase tracking-widest text-light hover:text-accent transition-colors">About</a>
+            <a href="#services" class="text-xl uppercase tracking-widest text-light hover:text-accent transition-colors">Services</a>
+            <a href="#technologies" class="text-xl uppercase tracking-widest text-light hover:text-accent transition-colors">Technologies</a>
+            <a href="#projects" class="text-xl uppercase tracking-widest text-light hover:text-accent transition-colors">Projects</a>
+            <a href="#careers" class="text-xl uppercase tracking-widest text-light hover:text-accent transition-colors">Careers</a>
+            <a href="#contact" class="text-xl uppercase tracking-widest text-light hover:text-accent transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative mt-16 h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
+        <div class="absolute top-0 inset-x-0 bottom-0 bg-gradient-to-r from-primary to-dark opacity-90 z-10"></div>
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="https://imgs.699pic.com/images/700/164/045.jpg!seo.v1" alt="Semiconductor circuit board background" class="w-full h-full object-cover opacity-40">
+        </div>
+        <div class="container mx-auto px-6 md:px-12 relative z-20 text-center">
+            <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold text-light leading-none mb-6 animate-fade-in">
+                Advancing <span>Semiconductor</span> Innovation
+            </h1>
+            <p class="text-[clamp(1rem,3vw,1.5rem)] text-light/80 max-w-3xl mx-auto mb-10 animate-slide-up" style="animation-delay: 0.2s">
+                Leading semiconductor design services in Malaysia, delivering cutting-edge solutions for global technology challenges.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 animate-slide-up" style="animation-delay: 0.4s">
+                <a href="#contact" class="px-8 py-3 bg-accent text-light font-medium rounded-md hover:bg-accent/90 transition-all transform hover:scale-105 shadow-lg">
+                    Get in Touch
+                </a>
+                <a href="#services" class="px-8 py-3 bg-transparent border-2 border-light text-light font-medium rounded-md hover:bg-light/10 transition-all transform hover:scale-105">
+                    Our Services
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-0 right-0 text-center z-20 animate-bounce">
+            <a href="#about" class="text-light/80 hover:text-light">
+                <i class="fa fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-6 relative">
+                        <span class="inline-block pb-2 relative">
+                            About Penguin-Chip
+                            <span class="absolute bottom-0 left-0 w-1/3 h-1 bg-accent"></span>
+                        </span>
+                    </h2>
+                    <p class="text-lg text-secondary mb-6">
+                        Founded in 2024, Penguin-Chip has established itself as a premier semiconductor design service provider in Southeast Asia. Our team of highly skilled engineers and designers are passionate about pushing the boundaries of what's possible in semiconductor technology.
+                    </p>
+                    <p class="text-lg text-secondary mb-8">
+                        Based in Penang, Malaysia, we serve clients worldwide with innovative solutions that combine deep technical expertise with a commitment to excellence. Our strategic location allows us to bridge the gap between Eastern manufacturing capabilities and Western design methodologies.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="bg-light p-6 rounded-lg shadow-sm">
+                            <div class="text-3xl font-bold text-primary mb-2">25+</div>
+                            <div class="text-secondary">Talented Engineers</div>
+                        </div>
+                        <div class="bg-light p-6 rounded-lg shadow-sm">
+                            <div class="text-3xl font-bold text-primary mb-2">10+</div>
+                            <div class="text-secondary">Projects Completed</div>
+                        </div>
+                        <div class="bg-light p-6 rounded-lg shadow-sm">
+                            <div class="text-3xl font-bold text-primary mb-2">7+</div>
+                            <div class="text-secondary">Years of Experience on Average</div>
+                        </div>
+                        <div class="bg-light p-6 rounded-lg shadow-sm">
+                            <div class="text-3xl font-bold text-primary mb-2">5+</div>
+                            <div class="text-secondary">Countries Served</div>
+                        </div>
+                    </div>
+                    <a href="#careers" class="inline-flex items-center text-accent font-medium hover:underline">
+                        Join Our Team <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="relative z-10 rounded-lg overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-500" style="transform: scale(1.15); transform-origin: left center;">
+                        <img src="About Section.png" alt="Penguin-Chip office interior" class="w-full h-auto">
+                    </div>
+                    <div class="absolute -bottom-8 -right-8 w-64 h-64 bg-secondary/20 rounded-full -z-10 blur-3xl"></div>
+                    <div class="absolute -top-8 -left-8 w-48 h-48 bg-accent/20 rounded-full -z-10 blur-3xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-light">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">Our Semiconductor Design Services</h2>
+                <p class="text-lg text-secondary">
+                    We offer comprehensive semiconductor design solutions tailored to your specific requirements, from concept to production.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="ASIC Design.png" alt="ASIC Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-microchip text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">ASIC Design</h3>
+                        <p class="text-secondary mb-4">
+                            Custom Application-Specific Integrated Circuit design solutions optimized for performance, power, and cost.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                RTL Design & Verification
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                Physical Design & Implementation
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                Power Optimization
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-primary font-medium inline-flex items-center hover:text-accent transition-colors">
+                            Learn More <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="FPGA Design.png" alt="FPGA Design & Prototyping" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-puzzle-piece text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">FPGA Design & Prototyping</h3>
+                        <p class="text-secondary mb-4">
+                            Rapid prototyping and verification of your designs using state-of-the-art FPGA technology.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                High-Speed Interface Design
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                Algorithm Implementation
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                Design Verification
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-primary font-medium inline-flex items-center hover:text-accent transition-colors">
+                            Learn More <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Embedded Systems.png" alt="Embedded Systems" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-microcontroller text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Embedded Systems</h3>
+                        <p class="text-secondary mb-4">
+                            Development of intelligent embedded systems and firmware for your semiconductor solutions.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                Firmware Development
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                RTOS Integration
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                Peripheral Interface Design
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-primary font-medium inline-flex items-center hover:text-accent transition-colors">
+                            Learn More <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Verification.png" alt="Verification & Validation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-check-circle text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Verification & Validation</h3>
+                        <p class="text-secondary mb-4">
+                            Comprehensive verification and validation services to ensure your designs meet specifications.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                Functional Verification
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                Formal Verification
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                Validation Methodology
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-primary font-medium inline-flex items-center hover:text-accent transition-colors">
+                            Learn More <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Physical Design.png" alt="Physical Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-object-group text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Physical Design</h3>
+                        <p class="text-secondary mb-4">
+                            Expert physical design services from floorplanning to tape-out, ensuring optimal performance.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                Floorplanning & Partitioning
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                Placement & Routing
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                DRC & LVS Verification
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-primary font-medium inline-flex items-center hover:text-accent transition-colors">
+                            Learn More <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="DFT.png" alt="Design for Testability" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-tasks text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Design for Testability</h3>
+                        <p class="text-secondary mb-4">
+                            Comprehensive DFT solutions to ensure high-quality testing and fault coverage for your designs.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                Scan Chain Insertion
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                BIST Implementation
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                ATPG Generation
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-primary font-medium inline-flex items-center hover:text-accent transition-colors">
+                            Learn More <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="technologies" class="py-24 bg-white">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">Technologies & Expertise</h2>
+                <p class="text-lg text-secondary">
+                    Our team has extensive experience with a wide range of semiconductor technologies and process nodes.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="bg-light p-8 rounded-xl text-center hover:bg-primary hover:text-white transition-colors duration-300">
+                    <div class="text-4xl mb-4">
+                        <i class="fa fa-microchip"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Process Nodes</h3>
+                    <ul class="space-y-2 text-sm text-secondary hover:text-white/80">
+                        <li>7nm, 10nm, 14nm</li>
+                        <li>22nm, 28nm</li>
+                        <li>40nm, 65nm</li>
+                        <li>90nm, 130nm</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-light p-8 rounded-xl text-center hover:bg-primary hover:text-white transition-colors duration-300">
+                    <div class="text-4xl mb-4">
+                        <i class="fa fa-language"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Design Languages</h3>
+                    <ul class="space-y-2 text-sm text-secondary hover:text-white/80">
+                        <li>Verilog</li>
+                        <li>VHDL</li>
+                        <li>SystemVerilog</li>
+                        <li>SystemC</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-light p-8 rounded-xl text-center hover:bg-primary hover:text-white transition-colors duration-300">
+                    <div class="text-4xl mb-4">
+                        <i class="fa fa-check-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Verification</h3>
+                    <ul class="space-y-2 text-sm text-secondary hover:text-white/80">
+                        <li>UVM</li>
+                        <li>OVM</li>
+                        <li>PSL/SVA</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-light p-8 rounded-xl text-center hover:bg-primary hover:text-white transition-colors duration-300">
+                    <div class="text-4xl mb-4">
+                        <i class="fa fa-exchange"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Interfaces</h3>
+                    <ul class="space-y-2 text-sm text-secondary hover:text-white/80">
+                        <li>PCIe</li>
+                        <li>USB 3.0/3.1/4</li>
+                        <li>Ethernet</li>
+                        <li>MIPI</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="#contact" class="inline-block px-8 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary/90 transition-all transform hover:scale-105 shadow-lg">
+                    Discuss Your Project
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-light">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">Featured Projects</h2>
+                <p class="text-lg text-secondary">
+                    Explore some of our recent semiconductor design projects and success stories.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-xl shadow-lg">
+                        <img src="Data Converter.png" alt="High-Speed Data Converter" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">High-Speed Data Converter</h3>
+                                <p class="text-white/80 mb-4">14-bit, 1GSPS ADC design for communication systems</p>
+                                <a href="#" class="text-white inline-flex items-center">
+                                    View Case Study <i class="fa fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-xl shadow-lg">
+                        <img src="IoT Sensor SoC.png" alt="IoT Sensor SoC" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">IoT Sensor SoC</h3>
+                                <p class="text-white/80 mb-4">Low-power system-on-a-chip for environmental monitoring</p>
+                                <a href="#" class="text-white inline-flex items-center">
+                                    View Case Study <i class="fa fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-xl shadow-lg">
+                        <img src="Automotive Radar IC.png" alt="Automotive Radar IC" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">Automotive Radar IC</h3>
+                                <p class="text-white/80 mb-4">77GHz radar transceiver for advanced driver assistance systems</p>
+                                <a href="#" class="text-white inline-flex items-center">
+                                    View Case Study <i class="fa fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+                    View All Projects <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+
+
+    <!-- Careers Section -->
+    <section id="careers" class="py-24 bg-white">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-6 relative">
+                        <span class="inline-block pb-2 relative">
+                            Join Our Team
+                            <span class="absolute bottom-0 left-0 w-1/3 h-1 bg-accent"></span>
+                        </span>
+                    </h2>
+                    <p class="text-lg text-secondary mb-6">
+                        At Penguin-Chip, we're always looking for talented engineers and designers to join our team. We offer a dynamic work environment, competitive compensation, and opportunities for professional growth.
+                    </p>
+                    <p class="text-lg text-secondary mb-8">
+                        Our diverse team of experts collaborates on cutting-edge projects that push the boundaries of semiconductor technology. If you're passionate about innovation and solving complex technical challenges, we want to hear from you.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="bg-light p-6 rounded-lg hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1">Senior ASIC Design Engineer</h3>
+                                    <p class="text-secondary mb-2">Penang, Malaysia</p>
+                                </div>
+                                <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm">Full-time</span>
+                            </div>
+                            <p class="text-secondary mb-4">
+                                We're seeking an experienced ASIC design engineer with expertise in RTL design and verification for high-performance applications.
+                            </p>
+                            <a href="#" class="text-primary font-medium hover:underline">Apply Now</a>
+                        </div>
+                        
+                        <div class="bg-light p-6 rounded-lg hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1">Physical Design Engineer</h3>
+                                    <p class="text-secondary mb-2">Penang, Malaysia</p>
+                                </div>
+                                <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm">Full-time</span>
+                            </div>
+                            <p class="text-secondary mb-4">
+                                Join our physical design team to work on advanced process nodes and contribute to the successful tape-out of our designs.
+                            </p>
+                            <a href="#" class="text-primary font-medium hover:underline">Apply Now</a>
+                        </div>
+                        
+                        <div class="bg-light p-6 rounded-lg hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1">Sr Design Verification Engineer</h3>
+                                    <p class="text-secondary mb-2">Penang, Malaysia</p>
+                                </div>
+                                <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm">Full-time</span>
+                            </div>
+                            <p class="text-secondary mb-4">
+                                We're looking for a verification engineer with experience in UVM and system-level verification methodologies.
+                            </p>
+                            <a href="#" class="text-primary font-medium hover:underline">Apply Now</a>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-flex items-center text-accent font-medium hover:underline">
+                        View All Open Positions <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="relative z-10 rounded-lg overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-500" style="transform: scale(1.15); transform-origin: left center;">
+                        <img src="Join Our Team.png" alt="Penguin-Chip team" class="w-full h-auto">
+                    </div>
+                    <div class="absolute -bottom-8 -left-8 w-64 h-64 bg-secondary/20 rounded-full -z-10 blur-3xl"></div>
+                    <div class="absolute -top-8 -right-8 w-48 h-48 bg-accent/20 rounded-full -z-10 blur-3xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-light">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">Get in Touch</h2>
+                <p class="text-lg text-secondary">
+                    Ready to start your next semiconductor design project? Contact us to discuss your requirements.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-secondary mb-2">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-secondary mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Your email">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="company" class="block text-sm font-medium text-secondary mb-2">Company</label>
+                            <input type="text" id="company" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Your company">
+                        </div>
+                        <div class="mb-6">
+                            <label for="subject" class="block text-sm font-medium text-secondary mb-2">Subject</label>
+                            <select id="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="asic">ASIC Design</option>
+                                <option value="fpga">FPGA Design</option>
+                                <option value="embedded">Embedded Systems</option>
+                                <option value="verification">Verification & Validation</option>
+                                <option value="other">Other Services</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-secondary mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Your message"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white font-medium py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+                        <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fa fa-map-marker text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Address</h4>
+                                    <p class="text-secondary">
+                                        B-10-3 Bay Avenue<br>
+                                        Lorong Bayan Indah 3<br>
+                                        11900 Bayan Lepas, Penang,<br>
+                                        Malaysia
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fa fa-phone text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Phone</h4>
+                                    <p class="text-secondary">
+                                        +601 2336 0513
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fa fa-envelope text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Email</h4>
+                                    <p class="text-secondary">
+                                        info@penguin-chip.com
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-bold mb-6">Business Hours</h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between">
+                                <span class="text-secondary">Monday - Friday</span>
+                                <span class="font-medium">9:00 AM - 6:00 PM, MST</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-secondary">Saturday - Sunday</span>
+                                <span class="font-medium">Closed</span>
+                            </li>                                                        
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <a href="#" class="text-2xl font-bold flex items-center space-x-2 mb-6">
+                        <span class="text-accent"><i class="fa fa-microchip"></i></span>
+                        <span>PENGUIN-CHIP</span>
+                    </a>
+                    <p class="text-white/70 mb-6">
+                        Leading semiconductor design services provider in Malaysia, delivering innovative solutions for global technology companies.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-white/70 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-white/70 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#projects" class="text-white/70 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#careers" class="text-white/70 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#contact" class="text-white/70 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-white/70 hover:text-white transition-colors">ASIC Design</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-white transition-colors">FPGA Design</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-white transition-colors">Embedded Systems</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-white transition-colors">Verification & Validation</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-white transition-colors">Physical Design</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Newsletter</h3>
+                    <p class="text-white/70 mb-4">
+                        Subscribe to our newsletter to receive updates and insights on semiconductor design trends.
+                    </p>
+                    <form class="mb-4">
+                        <div class="flex">
+                            <input type="email" placeholder="Your email address" class="px-4 py-2 rounded-l-lg focus:outline-none text-primary w-full">
+                            <button type="submit" class="bg-accent px-4 py-2 rounded-r-lg hover:bg-accent/90 transition-colors">
+                                <i class="fa fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <p class="text-white/50 text-sm">
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-white/50 text-sm mb-4 md:mb-0">
+                    &copy; 2025 Penguin-Chip. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-md', 'py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md', 'py-2');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate-fade-in');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on page load
+    </script>
+</body>
+</html>
